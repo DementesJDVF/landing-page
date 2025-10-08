@@ -1,1 +1,386 @@
-@import url('https:);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    background: #ffffff;
+    color: #0400ff;
+}
+header {
+    background: #0a0a0a;
+    color: rgb(255, 255, 255);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+nav a.box::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    filter: drop-shadow(0 15px 50px #ff0000);
+    border-radius: rotating 4s linear infinite;
+    animation-delay: -1s;
+}
+nav a.box::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    background: #0000ff;
+    border-radius: 15px;
+    border: 8px solid #00ff6a;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+
+.hero {
+    background: url('../imagenes/ShopStarter.jpg') no-repeat center center/cover;
+    height: 800px;
+    display: flex;
+    top: 100%;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;         /* necesario para el pseudo-elemento */
+    overflow: hidden;           /* evita que el blur se salga */
+    border-radius: 20px;        /* bordes redondeados */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* sombra alrededor */
+}
+
+/* 🎨 Capa desenfocada del fondo */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 50%;       /* distancia desde arriba */
+    left: 50%;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: inherit;         /* usa la misma imagen */
+    filter: blur(8px) brightness(0.7); /* desenfoque + oscurecer un poco */
+    z-index: 0;                  /* queda detrás del texto */
+    transform: scale(1.1);       /* evita bordes visibles del blur */
+}
+
+/* 🧠 Asegura que el texto quede encima del desenfoque */
+.hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h2 {
+    background: rgba(0,0,0,0.6);
+    padding: 15px 30px;
+    border-radius: 10px;
+}
+
+.logo {
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    top: 370px;
+    font-size: 200px;
+    font-weight: 1000;
+    text-transform: lowercase;
+    text-align: center;
+    position: relative;
+    perspective: 500px;
+    user-select: none;
+    -webkit-user-select: none; /* Add this line to support Safari and Safari on iOS */
+    color: transparent; /* necesario para el degradado */
+}
+
+.logo .shop {
+    background: linear-gradient(135deg, #0066cc 0%, #00aaff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    position: relative;
+    text-shadow:
+        0 1px 1px rgba(255,255,255,0.6),
+        0 2px 2px rgba(0,0,0,0.3),
+        0 4px 6px rgba(0,0,0,0.2);
+    transform: rotateX(10deg);
+}
+
+.logo .starter {
+    background: linear-gradient(135deg, #3b9119 0%, #000000 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    position: relative;
+    text-shadow:
+        0 1px 1px rgba(255, 255, 255, 0.6),
+        0 2px 2px rgba(43, 255, 0, 0.651),
+        0 4px 6px rgb(0, 0, 0);
+    transform: rotateX(10deg);
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(255, 255, 255, 0.9) 50%,
+        rgba(0, 0, 0, 0.1) 100%
+    );
+    transform: skewX(-25deg);
+    animation: shine 5s infinite;
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    100% { left: 125%; }
+}
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+.producto {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.producto:hover {
+    transform: scale(1.03);
+}
+
+.producto img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.producto h3 {
+    margin: 15px;
+    font-size: 1.2rem;
+}
+
+.producto p {
+    margin: 0 15px 10px;
+    color: #666;
+}
+
+.precio {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #000000;
+    margin-left: 15px;
+}
+
+.btn-agregar {
+    display: block;
+    text-align: center;
+    background: #e91e63;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    transition: background 0.3s;
+}
+
+.btn-agregar:hover {
+    background: #c2185b;
+}
+
+#carrito {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+#carrito h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+button.eliminar {
+    background: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.eliminar:hover {
+    background: #c62828;
+}
+
+.total {
+    text-align: right;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.acciones {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.acciones button {
+    background: #747474;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.acciones button:hover {
+    background: #000000;
+}
+
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+nav a.{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f0f0f0;
+}
+ul{
+    position: relative;
+    display: flex;
+    gap: 25px;    
+}
+ul li{
+    position: relative;
+    list-style: none;
+    width: 60px;
+    height: 60px;
+    background: #ffffff;
+    border-radius: 60px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: 0.5s;
+}
+ul li:hover{
+    width: 180px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.0);
+}
+ul li::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 60px;
+    background: linear-gradient(45deg, var(--i), var(--j));
+    transition: 0.5s;
+}
+ul li:hover::before{
+    opacity: 1;
+}
+ul li::after{
+    content: '';
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    height: 100%;
+    border-radius: linear-gradient(45deg, var(--i), var(--j));
+    z-index: -1;
+    opacity: 0.5;
+}
+ul li::hover::after{
+    opacity: 0.5;
+}
+ul li ion-icon{
+    color: #777;
+    font-size: 1.75em;
+    transition: 0.5s;
+    transition-delay: 0s;
+}
+ul li span{
+    position: absolute;
+}
+ul li .title{
+    color: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transform: scale(0);
+    transition: 0.5s;
+    transition-delay: 0s;
+}
+ul li:hover .title{
+    transform: scale(1);
+    transition-delay: 0.25s;
+}
+.wrapper{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 16rem;
+    animation: animate 10s linear infinite;
+}
+.wrapper:hover{
+    animation-play-state: paused;
+
+}
+@keyframes animate{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(calc(-16rem * 4));
+    }
+}
