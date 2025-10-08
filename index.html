@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SHOPSTARTER</title>
+    <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+  <header>
+    <h1>Tienda Online</h1>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#productos">Productos</a>
+      <a href="#carrito">Carrito</a>
+    </nav>
+  </header>
+    
+  <section class="hero" id="inicio">
+    <div class="logo">
+    <span class="shop">Shop</span><span class="starter">Starter</span>
+  </div>
+  </section>
+  
+
+  <section class="productos" id="productos">
+    <div class="wrapper">
+      <div class="producto" data-nombre="Producto 1" data-precio="49.99">
+        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" alt="Producto 1">
+        <h3>Producto 1</h3>
+        <p>Descripción breve del producto.</p>
+        <p class="precio">$49.99</p>
+        <button class="btn-agregar">Agregar al carrito</button>
+      </div>
+
+      <div class="producto" data-nombre="Producto 2" data-precio="59.99">
+        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" alt="Producto 2">
+        <h3>Producto 2</h3>
+        <p>Descripción breve del producto.</p>
+        <p class="precio">$59.99</p>
+        <button class="btn-agregar">Agregar al carrito</button>
+      </div>
+
+      <div class="producto" data-nombre="Producto 3" data-precio="79.99">
+        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" alt="Producto 3">
+        <h3>Producto 3</h3>
+        <p>Descripción breve del producto.</p>
+        <p class="precio">$79.99</p>
+        <button class="btn-agregar">Agregar al carrito</button>
+      </div>
+
+      <div class="producto" data-nombre="Producto 4" data-precio="99.99">
+        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" alt="Producto 4">
+        <h3>Producto 4</h3>
+        <p>Descripción breve del producto.</p>
+        <p class="precio">$99.99</p>
+        <button class="btn-agregar">Agregar al carrito</button>
+      </div>
+
+      <div class="producto" data-nombre="Producto 5" data-precio="490.99">
+        <img src="" alt="Producto 5">
+        <h3>Producto 5</h3>
+        <p>Descripción breve del producto.</p>
+        <p class="precio">$409.99</p>
+        <button class="btn-agregar">Agregar al carrito</button>
+      </div>
+
+      <div class="producto" data-nombre="Producto 6" data-precio="509.99">
+        <img src="https://www.goodhousekeeping.com/home-products/g60307127/cool-office-gadgets" alt="Producto 6">
+        <h3>Producto 6</h3>
+        <p>Descripción breve del producto.</p>
+        <p class="precio">$509.99</p>
+        <button class="btn-agregar">Agregar al carrito</button>
+      </div>
+
+      <div class="producto" data-nombre="Producto 7" data-precio="790.99">
+        <img src="https://www.menshealth.com/technology-gear/a46255893/cool-office-gadgets" alt="Producto 7">
+        <h3>Producto 7</h3>
+        <p>Descripción breve del producto.</p>
+        <p class="precio">$790.99</p>
+        <button class="btn-agregar">Agregar al carrito</button>
+      </div>
+
+      <div class="producto" data-nombre="Producto 8" data-precio="100.00">
+        <img src="https://www.reviewed.com/gift-guides/features/best-tech-gifts-and-gadgets" alt="Producto 8">
+        <h3>Producto 8</h3>
+        <p>Descripción breve del producto.</p>
+        <p class="precio">$100.00</p>
+        <button class="btn-agregar">Agregar al carrito</button>
+      </div>
+    </div>  
+  </section>
+
+  <section id="carrito">
+    <h3>🛒 Carrito de Compras</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Subtotal</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody id="carrito-body">
+        <tr><td colspan="5">Tu carrito está vacío</td></tr>
+      </tbody>
+    </table>
+    <p class="total" id="total">Total: $0.00</p>
+    <div class="acciones">
+      <button id="vaciar">Vaciar carrito</button>
+      <button id="comprar">Finalizar compra</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Tienda Online. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    const botonesAgregar = document.querySelectorAll('.btn-agregar');
+    const carritoBody = document.getElementById('carrito-body');
+    const totalTexto = document.getElementById('total');
+    const vaciarBtn = document.getElementById('vaciar');
+    const comprarBtn = document.getElementById('comprar');
+    let carrito = [];
+
+    botonesAgregar.forEach(boton => {
+      boton.addEventListener('click', () => {
+        const producto = boton.parentElement;
+        const nombre = producto.dataset.nombre;
+        const precio = parseFloat(producto.dataset.precio);
+
+        const existente = carrito.find(p => p.nombre === nombre);
+        if (existente) {
+          existente.cantidad++;
+        } else {
+          carrito.push({ nombre, precio, cantidad: 1 });
+        }
+        actualizarCarrito();
+      });
+    });
+
+    function actualizarCarrito() {
+      carritoBody.innerHTML = '';
+      let total = 0;
+
+      carrito.forEach((p, index) => {
+        const subtotal = p.precio * p.cantidad;
+        total += subtotal;
+
+        const fila = document.createElement('tr');
+        fila.innerHTML = `
+          <td>${p.nombre}</td>
+          <td>$${p.precio.toFixed(2)}</td>
+          <td>${p.cantidad}</td>
+          <td>$${subtotal.toFixed(2)}</td>
+          <td><button class="eliminar" data-index="${index}">X</button></td>
+        `;
+        carritoBody.appendChild(fila);
+      });
+
+      if (carrito.length === 0) {
+        carritoBody.innerHTML = '<tr><td colspan="5">Tu carrito está vacío</td></tr>';
+      }
+
+      totalTexto.textContent = `Total: $${total.toFixed(2)}`;
+
+      document.querySelectorAll('.eliminar').forEach(b => {
+        b.addEventListener('click', e => {
+          const i = e.target.dataset.index;
+          carrito.splice(i, 1);
+          actualizarCarrito();
+        });
+      });
+    }
+
+    vaciarBtn.addEventListener('click', () => {
+      carrito = [];
+      actualizarCarrito();
+    });
+
+    comprarBtn.addEventListener('click', () => {
+      if (carrito.length === 0) {
+        alert('Tu carrito está vacío.');
+    } else {
+        alert('¡Gracias por tu compra!');
+        carrito = [];
+        actualizarCarrito();
+    }
+    });
+    </script>
+</body>
+</html>
