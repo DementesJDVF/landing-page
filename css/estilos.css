@@ -44,6 +44,7 @@ nav a.box::after {
 }
 nav a:hover {
     text-decoration: underline;
+    background: #646464;
 }
 
 .hero {
@@ -54,26 +55,24 @@ nav a:hover {
     justify-content: center;
     color: white;
     text-align: center;
-    position: relative;         /* necesario para el pseudo-elemento */
-    overflow: hidden;           /* evita que el blur se salga */
-    border-radius: 20px;        /* bordes redondeados */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* sombra alrededor */
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); 
 }
 
-/* 🎨 Capa desenfocada del fondo */
 .hero::before {
     content: "";
     position: absolute;
-    top: 50%;       /* distancia desde arriba */
+    top: 50%; 
     left: 50%;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: inherit;         /* usa la misma imagen */
-    filter: blur(8px) brightness(0.7); /* desenfoque + oscurecer un poco */
-    z-index: 0;                  /* queda detrás del texto */
-    transform: scale(1.1);       /* evita bordes visibles del blur */
+    background: inherit;
+    filter: blur(8px) brightness(0.7);
+    z-index: 0;
+    transform: scale(1.1);
 }
 
-/* 🧠 Asegura que el texto quede encima del desenfoque */
 .hero > * {
     position: relative;
     z-index: 1;
@@ -95,9 +94,18 @@ nav a:hover {
     text-align: center;
     position: relative;
     perspective: 500px;
+    -webkit-user-select: none;
     user-select: none;
-    -webkit-user-select: none; /* Add this line to support Safari and Safari on iOS */
-    color: transparent; /* necesario para el degradado */
+    color: transparent;
+}
+
+.logo .shop {
+    background: linear-gradient(135deg, #0066cc 0%, #00aaff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    /* rest of the code */
 }
 
 .logo .shop {
@@ -288,15 +296,6 @@ footer {
     font-family: 'Poppins', sans-serif;
 }
 
-nav a.{
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #f0f0f0;
-}
 ul{
     position: relative;
     display: flex;
