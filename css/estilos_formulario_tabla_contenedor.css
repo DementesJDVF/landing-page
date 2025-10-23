@@ -1,0 +1,98 @@
+/* Estilos generales de la página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f4f6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal */
+.container {
+    width: 60%;
+    max-width: 700px;
+    background-color: #ffffff;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Título principal */
+h1 {
+    text-align: center;
+    color: #333333;
+    margin-bottom: 25px;
+}
+
+/* Tabla del formulario */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Celdas y etiquetas */
+td {
+    padding: 10px;
+    vertical-align: middle;
+}
+
+/* Etiquetas de los campos */
+label {
+    font-weight: bold;
+    color: #444444;
+}
+
+/* Campos de entrada */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Botones */
+input[type="submit"],
+input[type="reset"] {
+    background-color: #2053be;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: #1048af;
+}
+
+/* Centrar los botones en la última fila */
+tfoot td {
+    text-align: center;
+    padding-top: 15px;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    td {
+        display: block;
+        width: 100%;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+    }
+}
