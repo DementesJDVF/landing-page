@@ -3,40 +3,39 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registro de usuario.</title>
+    <title>Registro de usuario</title>
     <link rel="stylesheet" href="css/estilos_formulario_tabla_contenedor.css" />
 </head>
 <body>
-    <div>
+    <div class="container">
+        <h1>Registro de Usuario</h1>
         <form action="#" method="post">
             <table>
-                <caption>Formulario de Registro</caption>
                 <tr>
-                    <th><label for="etiqueta">Etiqueta</label></td>
-                    <th><label for="entrada">Campo de entrada</label></td>
+                    <th>Etiqueta</th>
+                    <th>Campo de entrada</th>
                 </tr>
+
                 <tr>
                     <td><label for="nombre">Nombre completo:</label></td>
-                    <td><input type="text" id="nombre" name="nombre" ></td>
+                    <td><input type="text" id="nombre" name="nombre" required></td>
                 </tr>
 
                 <tr>
                     <td><label for="email">Correo electrónico:</label></td>
-                    <td><input type="email" id="email" name="email"></td>
+                    <td><input type="email" id="email" name="email" required></td>
                 </tr>
 
                 <tr>
                     <td><label for="password">Contraseña:</label></td>
-                    <td><input type="password" id="password" name="password"></td>
+                    <td><input type="password" id="password" name="password" required></td>
                 </tr>
 
                 <tr>
-                    <td><label for="genero">Genero: </label></td>
+                    <td><label for="genero">Género:</label></td>
                     <td>
-                    <input type="radio" id="masculino" name="genero" value="Masculino">
-                    <label for="masculino">Masculino</label><br>
-                    <input type="radio" id="femenino" name="genero" value="Femenino">
-                    <label for="femenino">Femenino</label>
+                    <label><input type="radio" name="genero" value="Masculino" required> Masculino</label>
+                    <label><input type="radio" name="genero" value="Femenino"> Femenino</label>
                     </td>
                 </tr>
 
@@ -45,9 +44,9 @@
                     <td>
                     <select id="ciudad" name="ciudad" required>
                         <option value="">Seleccionar una ciudad</option>
-                        <option value="popayan">popayan</option>
-                        <option value="medellin">medellin</option>
-                        <option value="cali">cali</option>
+                        <option value="popayan">Popayán</option>
+                        <option value="medellin">Medellín</option>
+                        <option value="cali">Cali</option>
                     </select>
                     </td>
                 </tr>
@@ -58,10 +57,11 @@
                 </tr>
 
                 <tr>
-                    <td><button type="submit">Enviar</button></td>
-                    <td><button type="reset">Limpiar</button></td>
-                </td>
+                    <td><input type="submit" value="Enviar"></td>
+                    <td><input type="reset" value="Limpiar"></td>
+                </tr>
             </table>
         </form>
     </div>
 </body>
+</html>
