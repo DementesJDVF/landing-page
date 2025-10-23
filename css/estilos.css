@@ -6,7 +6,7 @@ body {
     color: #0400ff;
 }
 header {
-    background: #0a0a0a;
+    background: #6e6b86;
     color: rgb(255, 255, 255);
     padding: 15px 30px;
     display: flex;
@@ -57,7 +57,7 @@ nav a:hover {
     text-align: center;
     position: relative;
     overflow: hidden;
-    border-radius: 20px;
+    border-radius: 0px 0px 20px 20px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); 
 }
 
