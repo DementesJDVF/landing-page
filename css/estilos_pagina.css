@@ -102,4 +102,43 @@ tr:hover {
     box-shadow: 0 8px 16px rgb(0, 0, 0);
 }
 
+footer {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    background-color: #000000;
+    color: #fff;
+    padding: 20px 40px;
+    border-radius: 10px 10px 0 0 ;
+}
 
+footer > p {
+    margin: 0;
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.contacto p {
+    margin: 3px 0;
+    font-weight: 300;
+    text-align: center;
+}
+
+.contacto p:first-child {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+    color: rgb(68, 129, 170);
+}
+
+.redes a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+    font-size: 1.1em;
+}
+
+.redes a:hover {
+    color: #00bcd4;
+}
