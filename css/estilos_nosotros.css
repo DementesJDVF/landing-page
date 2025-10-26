@@ -99,13 +99,12 @@ nav a:hover {
 }
 
 .miembro {
-    color: #ffffff;
     background-color: #000000;
     border-radius: 20px;
     padding: 20px;
     width: 300px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: #000000 0 8px 16px ;
+    box-shadow: #000000 1px 8px 16px 1px;
 }
 
 .miembro:hover {
