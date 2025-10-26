@@ -4,20 +4,40 @@
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
+
 header{
     background-color: #000000;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 15px 30px;
-    box-shadow: 0 8px 16px rgb(0, 0, 0);
+    justify-content:space-between;
+    padding: 10px 20px;
+    box-shadow: 0 8px 16px 0 rgb(0, 0, 0);
     border-radius: 0 0 10px 10px
+}
+
+header {
+position: fixed;
+top: 0;
+width: 100%;
+z-index: 1000;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 30px;
+    justify-content: center;
+}
+
+.menu li:nth-child(1) a {
+    color: #d40000;
+    text-decoration: underline #ffffff 3px;
 }
 
 .logo-header{
     width: 50px;
     border-radius: 50%;
 }
+
 nav ul {
     list-style: none;
     display: flex;
